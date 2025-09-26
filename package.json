@@ -1,25 +1,33 @@
 {
-  "name": "dashboard-app",
+  "name": "dashboard-backend",
   "version": "1.0.0",
-  "description": "Scalable Web App with Authentication & Dashboard",
-  "main": "index.js",
+  "description": "Backend API for Dashboard application",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "dev:backend": "cd backend && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd frontend && npm run build",
-    "start": "cd backend && npm start"
+    "start": "nodemon backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "helmet": "^7.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.2",
+    "morgan": "^1.10.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "nodemon": "^3.1.10"
   },
   "keywords": [
-    "react",
     "express",
     "mongodb",
     "jwt",
-    "dashboard"
+    "api"
   ],
   "author": "",
   "license": "ISC"
